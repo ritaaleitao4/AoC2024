@@ -1,7 +1,7 @@
 import { input } from "./input";
 import { getLines } from "../utils";
 
-// PT1
+const lines = getLines(input);
 const isStrictlyAscendingOrDescending = (
 	arr: number[],
 	isIncreasing: boolean
@@ -21,21 +21,20 @@ const isStrictlyAscendingOrDescending = (
 	});
 };
 
-const findValidArrangements = (lines: number[][]): number[][] =>
+// PT1
+const validArrangements = (): number =>
 	lines.filter(
 		(line) =>
 			isStrictlyAscendingOrDescending(line, true) ||
 			isStrictlyAscendingOrDescending(line, false)
-	);
+	).length;
 
-const lines = getLines(input);
-const validArrangements = findValidArrangements(lines);
 
-console.log(validArrangements.length);
+console.log(validArrangements());
 
 // PT2
 const isValidWithProblemDampener = (arr: number[]): boolean => {
-	const isValid = (array: number[]) =>
+	const isValid = (array: number[]): boolean =>
 		isStrictlyAscendingOrDescending(array, true) ||
 		isStrictlyAscendingOrDescending(array, false);
 
@@ -46,10 +45,6 @@ const isValidWithProblemDampener = (arr: number[]): boolean => {
 	return arr.some((_, i) => isValid([...arr.slice(0, i), ...arr.slice(i + 1)]));
 };
 
-const findValidArrangementsWithDampener = (lines: number[][]): number[][] =>
-	lines.filter(isValidWithProblemDampener);
+const validArrangements2 = (): number => lines.filter(isValidWithProblemDampener).length;
 
-const linesPt2 = getLines(input);
-const validArrangementsPt2 = findValidArrangementsWithDampener(linesPt2);
-
-console.log(validArrangementsPt2.length);
+console.log(validArrangements2());
