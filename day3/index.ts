@@ -1,12 +1,6 @@
-import * as fs from 'fs';
-import * as path from 'path';
+import { readTextFileSync } from '../utils';
 
-const filePath = path.join(__dirname, 'input.txt');
-if (!fs.existsSync(filePath)) {
-	console.error('File not found:', filePath);
-	process.exit(1);
-}
-const input = fs.readFileSync(filePath, 'utf-8');
+const input = readTextFileSync(`${__dirname}/input.txt`) as string;
 
 // PT1
 const sumValidMultiplications = (): number => {
