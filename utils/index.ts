@@ -1,12 +1,7 @@
 import { readFileSync } from "fs";
 
 export const getLines = (input: string): number[][] =>
-	input.split("\n").map((line) => line.split(/\s+/).map(Number));
+	input.split('\n').map((line) => line.split(/\s+/).map(Number));
 
-export const readTextFileSync = (file: string) => {
-	try {
-		return readFileSync(file, "utf-8");
-	} catch (error) {
-		console.error("Error reading file:", error);
-	}
-};
+export const readTextFileSync = (day: number): string =>
+	readFileSync(`./day${day}/input.txt`, "utf-8");

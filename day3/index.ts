@@ -1,6 +1,6 @@
 import { readTextFileSync } from '../utils';
 
-const input = readTextFileSync(`${__dirname}/input.txt`) as string;
+const input = readTextFileSync(3);
 
 // PT1
 const sumValidMultiplications = (): number => {
