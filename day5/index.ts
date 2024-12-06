@@ -1,6 +1,5 @@
 import { input } from "./input";
 
-const parsedInput = input.split("\n");
 const [rulesInput, pagesInput] = input.split('\n\n');
 const rules = rulesInput.split('\n').map(r => r.split('|').map(Number));
 const pageList = pagesInput.split('\n').map(p => p.split(',').map(Number));
